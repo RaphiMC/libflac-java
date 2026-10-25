@@ -1,0 +1,3 @@
+[submodule "src_upstream"]
+	path = src_upstream
+	url = https://github.com/xiph/flac.git

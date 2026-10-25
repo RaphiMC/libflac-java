@@ -1,0 +1,13 @@
+plugins { id 'java' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(17) } }
+tasks.withType(JavaCompile).configureEach { options.release = 17; options.encoding = 'UTF-8' }
+dependencies { implementation project(':') }
+tasks.register('encode', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'io.github.raphimc.libflac.examples.EncodeFile'
+}
+tasks.register('decode', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'io.github.raphimc.libflac.examples.DecodeFile'
+}
+base { archivesName = 'libflac-java-examples' }
